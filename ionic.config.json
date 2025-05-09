@@ -1,0 +1,7 @@
+{
+  "name": "mobile-jack-of-all-games",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
