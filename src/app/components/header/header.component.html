@@ -1,3 +1,16 @@
-<p>
-  header works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Jack of all games
+    </ion-title>
+  </ion-toolbar>
+<ion-accordion-group>
+  <ion-accordion value="first">
+    <ion-item slot="header" color="light">
+      <ion-label>First Accordion</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">First Content</div>
+  </ion-accordion>
+</ion-accordion-group>
+
+</ion-header>
