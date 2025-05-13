@@ -1,16 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Jack of all games
-    </ion-title>
+    <ion-title>Jack of all games</ion-title>
   </ion-toolbar>
-<ion-accordion-group>
-  <ion-accordion value="first">
-    <ion-item slot="header" color="light">
-      <ion-label>First Accordion</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content">First Content</div>
-  </ion-accordion>
-</ion-accordion-group>
-
 </ion-header>
+
+<ion-content>
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>Juegos</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list>
+          <ion-item routerLink="/">Ajedrez</ion-item>
+          <ion-item routerLink="/">Cartas</ion-item>
+        </ion-list>
+      </div>
+    </ion-accordion>
+
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>Opciones</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list>
+          <ion-item routerLink="/perfil">Perfil</ion-item>
+          <ion-item routerLink="/ajustes">Ajustes</ion-item>
+        </ion-list>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>

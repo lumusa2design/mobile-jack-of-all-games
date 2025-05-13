@@ -10,5 +10,8 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: '**', 
+    redirectTo: 'home',
+  }
 ];
-

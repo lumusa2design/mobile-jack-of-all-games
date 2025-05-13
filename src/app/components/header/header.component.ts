@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {
   IonAccordion,
-  IonAccordionGroup,
+  IonAccordionGroup, IonContent,
   IonHeader,
   IonItem,
-  IonLabel,
+  IonLabel, IonList, IonMenu, IonRouterOutlet,
   IonTitle,
   IonToolbar
 } from "@ionic/angular/standalone";
@@ -13,6 +13,7 @@ import {
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
+  standalone: true,
   imports: [
     IonHeader,
     IonTitle,
@@ -20,7 +21,11 @@ import {
     IonAccordion,
     IonItem,
     IonLabel,
-    IonAccordionGroup
+    IonAccordionGroup,
+    IonMenu,
+    IonContent,
+    IonList,
+    IonRouterOutlet
   ]
 })
 export class HeaderComponent  implements OnInit {
