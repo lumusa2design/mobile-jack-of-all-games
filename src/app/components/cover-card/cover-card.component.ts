@@ -1,24 +1,28 @@
-import { Component, Input, OnInit } from '@angular/core';
-//import {IonCard} from "@ionic/angular/standalone";
-import {IonicModule} from "@ionic/angular";
+import { Component, Input } from '@angular/core';
+import {
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonImg
+} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-cover-card',
+  standalone: true,
   templateUrl: './cover-card.component.html',
   styleUrls: ['./cover-card.component.scss'],
-  standalone: true,
   imports: [
-      IonCard,
-      IonicModule
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonImg
   ]
 })
-export class CoverCardComponent  implements OnInit {
-
+export class CoverCardComponent {
   @Input() title!: string;
   @Input() imgPath!: string;
 
   constructor() { }
 
   ngOnInit() {}
-
 }
