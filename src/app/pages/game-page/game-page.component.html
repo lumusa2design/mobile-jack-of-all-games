@@ -1,3 +1,26 @@
-<p>
-  game-page works!
-</p>
+<ion-content fullscreen class="ion-padding">
+  <ion-card class="game-info-card">
+    <ion-card-header>
+      <ion-card-title>{{ game.title }}</ion-card-title>
+      <p>{{ game.company }}</p>
+    </ion-card-header>
+
+    <ion-card-content>
+      <img [src]="imgPath" alt="game image" style="width: 100%; border-radius: 10px;" />
+
+      <div class="platform-badge">{{ game.score }}</div>
+
+      <h3>Platforms:</h3>
+      <p>{{ platforms() }}</p>
+
+      <ion-button expand="block">Add to Library</ion-button>
+
+      <p [class.collapsed]="!isExpanded()" [class.expanded]="isExpanded()">
+        {{ game.description }}
+      </p>
+      <ion-button fill="clear" size="small" (click)="toggleDescription()">
+        {{ isExpanded() ? 'See less' : 'See more' }}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

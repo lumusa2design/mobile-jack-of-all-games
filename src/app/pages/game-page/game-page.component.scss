@@ -1,0 +1,118 @@
+:host {
+  display: block;
+}
+
+ion-content {
+  --background: #121212;
+  color: white;
+}
+
+ion-card-title {
+  color: white;
+}
+
+.game-info-card {
+  background-color: #202020;
+  border-radius: 15px;
+  max-width: 1200px;
+  width: 90%;
+  margin: 1rem auto;
+  padding: 1.5rem;
+}
+
+.game-header-wrapper {
+  text-align: center;
+  margin-bottom: 1rem;
+
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 0.5rem;
+  }
+}
+
+.game-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+ion-card-title {
+  color: white;
+}
+
+.game-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 15px;
+  overflow: hidden;
+
+  iframe,
+  img {
+    width: 60%;
+    height: 60%;
+    object-fit: cover;
+  }
+}
+
+.game-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+}
+
+.platform-badge {
+  background-color: forestgreen;
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+p.collapsed {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+p.expanded {
+  overflow: visible;
+}
+
+.toggle-description {
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  padding: 0;
+  align-self: flex-start;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+ion-button.add-game {
+  max-width: 200px;
+  margin: 1rem auto;
+}
