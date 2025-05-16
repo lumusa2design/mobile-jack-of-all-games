@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {AuthService} from "../../../services/auth/auth.service";
 
 @Component({
   selector: 'app-login-fom',
@@ -15,13 +16,24 @@ export class LoginFomComponent {
     password: ['', [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,   private authService: AuthService) {}
 
   onSubmit() {
+    const { email, password } = this.form.value;
+
     if (this.form.valid) {
-      console.log('Login datos:', this.form.value);
+      this.authService.login(email!, password!).subscribe({
+        next: (userCredential) => {
+          console.log('Sesión iniciada:', userCredential.user);
+        },
+        error: (err) => {
+          console.error('Error al iniciar sesión:', err);
+        }
+      });
     } else {
       this.form.markAllAsTouched();
     }
   }
+
+
 }

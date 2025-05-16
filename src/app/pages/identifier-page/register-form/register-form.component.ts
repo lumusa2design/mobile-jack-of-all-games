@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {AuthService} from "../../../services/auth/auth.service";
 
 @Component({
   selector: 'app-register-form',
@@ -21,21 +22,30 @@ export class RegisterFormComponent {
     confirmPassword: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {
+  }
 
   passwordStrengthValidator(control: AbstractControl): ValidationErrors | null {
     const value = control.value;
     const strongRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
     if (value && !strongRegex.test(value)) {
-      return { weakPassword: true };
+      return {weakPassword: true};
     }
     return null;
   }
 
   onSubmit() {
-    const { password, confirmPassword } = this.form.value;
+    const {email, password, confirmPassword} = this.form.value;
+
     if (this.form.valid && password === confirmPassword) {
-      console.log('Registro correcto:', this.form.value);
+      this.authService.signup(email!, password!).subscribe({
+        next: (userCredential) => {
+          console.log('✅ Usuario registrado:', userCredential.user);
+        },
+        error: (err) => {
+          console.error(' Error al registrar:', err);
+        }
+      });
     } else {
       this.form.markAllAsTouched();
       if (password !== confirmPassword) {
@@ -43,4 +53,7 @@ export class RegisterFormComponent {
       }
     }
   }
+
+
+
 }
