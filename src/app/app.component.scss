@@ -12,6 +12,11 @@ html,body
 body {
   display: flex;
   flex-direction: column;
+  background-color: #1e1e1e;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+
 }
 
 app-root {

@@ -1,3 +1,35 @@
-<p>
-  register-form works!
-</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>
+    Nombre:
+    <input type="text" formControlName="name" />
+    <span *ngIf="form.controls.name.touched && form.controls.name.invalid">
+      Campo obligatorio
+    </span>
+  </label>
+
+  <label>
+    Email:
+    <input type="email" formControlName="email" />
+    <span *ngIf="form.controls.email.touched && form.controls.email.invalid">
+      Email inválido
+    </span>
+  </label>
+
+  <label>
+    Contraseña:
+    <input type="password" formControlName="password" />
+    <span *ngIf="form.controls.password.touched && form.controls.password.invalid">
+      Mínimo 6 caracteres
+    </span>
+  </label>
+
+  <label>
+    Repite la contraseña:
+    <input type="password" formControlName="confirmPassword" />
+    <span *ngIf="form.controls.confirmPassword.touched && form.controls.confirmPassword.invalid">
+      Campo obligatorio
+    </span>
+  </label>
+
+  <button type="submit">Registrarse</button>
+</form>

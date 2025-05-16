@@ -1,3 +1,19 @@
-<p>
-  login-fom works!
-</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>
+    Email:
+    <input type="email" formControlName="email" />
+    <span *ngIf="form.controls.email.touched && form.controls.email.invalid">
+      Email inválido
+    </span>
+  </label>
+
+  <label>
+    Contraseña:
+    <input type="password" formControlName="password" />
+    <span *ngIf="form.controls.password.touched && form.controls.password.invalid">
+      Contraseña requerida
+    </span>
+  </label>
+
+  <button type="submit">Iniciar sesión</button>
+</form>

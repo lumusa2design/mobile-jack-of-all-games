@@ -1,3 +1,20 @@
-<p>
-  identifier-page works!
-</p>
+<div class="form-wrapper">
+  <button (click)="toggleForm()">
+    {{ showLogin() ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión' }}
+  </button>
+
+  @if(!showLogin())
+  {
+    <div>
+      <app-register-form>
+
+      </app-register-form>
+
+    </div>
+  } @else
+  {
+    <div>
+      <app-login-fom/>
+    </div>
+  }
+</div>

@@ -1,14 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import {LoginFomComponent} from "./login-fom/login-fom.component";
+import {RegisterFormComponent} from "./register-form/register-form.component";
 
 @Component({
   selector: 'app-identifier-page',
+  standalone: true,
+  imports: [
+    LoginFomComponent,
+    RegisterFormComponent,
+  ],
   templateUrl: './identifier-page.component.html',
-  styleUrls: ['./identifier-page.component.scss'],
+  styleUrls: ['./identifier-page.component.scss']
 })
-export class IdentifierPageComponent  implements OnInit {
+export class IdentifierPageComponent {
+  showLogin = signal(true);
 
-  constructor() { }
-
-  ngOnInit() {}
-
+  toggleForm() {
+    this.showLogin.update(value => !value);
+  }
 }
