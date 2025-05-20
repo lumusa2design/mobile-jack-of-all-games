@@ -1,26 +1,29 @@
 <ion-content fullscreen class="ion-padding">
-  <ion-card class="game-info-card">
-    <ion-card-header>
-      <ion-card-title>{{ game.title }}</ion-card-title>
-      <p>{{ game.company }}</p>
-    </ion-card-header>
+  <ng-container *ngIf="game$ | async as game">
+    <ion-card class="game-info-card">
+      <ion-card-header>
+        <ion-card-title>{{ game.title }}</ion-card-title>
+        <p>{{ game.company }}</p>
+      </ion-card-header>
 
-    <ion-card-content>
-      <img [src]="imgPath" alt="game image" style="width: 100%; border-radius: 10px;" />
+      <ion-card-content>
+        <img [src]="game.media?.img[0]" alt="game image" style="width: 100%; border-radius: 10px;" />
 
-      <div class="platform-badge">{{ game.score }}</div>
+        <div class="platform-badge">{{ game.score }}</div>
 
-      <h3>Platforms:</h3>
-      <p>{{ platforms() }}</p>
+        <h3>Platforms:</h3>
+        <p>{{ game.platform?.join(', ') }}</p>
 
-      <ion-button expand="block">Add to Library</ion-button>
+        <ion-button expand="block">Add to Favourites</ion-button>
 
-      <p [class.collapsed]="!isExpanded()" [class.expanded]="isExpanded()">
-        {{ game.description }}
-      </p>
-      <ion-button fill="clear" size="small" (click)="toggleDescription()">
-        {{ isExpanded() ? 'See less' : 'See more' }}
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
+        <p [class.collapsed]="!isExpanded()" [class.expanded]="isExpanded()">
+          {{ game.description }}
+        </p>
+
+        <ion-button fill="clear" size="small" (click)="toggleDescription()">
+          {{ isExpanded() ? 'See less' : 'See more' }}
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
 </ion-content>
