@@ -3,7 +3,8 @@ import {
   IonCard,
   IonCardHeader,
   IonCardTitle,
-  IonImg
+  IonImg,
+  IonCardContent
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -15,14 +16,11 @@ import {
     IonCard,
     IonCardHeader,
     IonCardTitle,
-    IonImg
+    IonImg,
+    IonCardContent
   ]
 })
 export class CoverCardComponent {
   @Input() title!: string;
   @Input() imgPath!: string;
-
-  constructor() { }
-
-  ngOnInit() {}
 }

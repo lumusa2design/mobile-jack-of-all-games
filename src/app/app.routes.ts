@@ -18,8 +18,16 @@ export const routes: Routes = [
       import('./pages/game-page/game-page.component').then((m) => m.GamePageComponent),
   },
   {
+    path: 'game/:id',
+    loadComponent: () => import('./pages/game-page/game-page.component').then((m) => m.GamePageComponent),
+  },
+  {
+    path: 'library',
+    loadComponent: () => import('./pages/library/library.component').then((m) => m.LibraryPageComponent),
+  },
+  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'library',
     pathMatch: 'full',
   },
 ];
