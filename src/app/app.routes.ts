@@ -10,12 +10,26 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/identifier-page/identifier-page.component').then((m) => m.IdentifierPageComponent),
   },
   {
+    path: 'cover',
+    loadComponent: () =>
+      import('./components/cover-card/cover-card.component').then((m) => m.CoverCardComponent),
+  },
+  {
+    path: 'game',
+    loadComponent: () =>
+      import('./pages/game-page/game-page.component').then((m) => m.GamePageComponent),
+  },
+  {
+    path: 'game/:id',
+    loadComponent: () => import('./pages/game-page/game-page.component').then((m) => m.GamePageComponent),
+  },
+  {
     path: '',
-    redirectTo: 'identify',
+    redirectTo: 'library',
     pathMatch: 'full',
   },
   {
     path: '**',
-    redirectTo: 'identify',
+    redirectTo: 'home',
   }
 ];
