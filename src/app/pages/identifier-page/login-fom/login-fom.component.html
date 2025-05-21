@@ -1,0 +1,25 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>
+    Email:
+    <input type="email" formControlName="email" />
+    @if(form.controls.email.touched && form.controls.email.invalid)
+    {
+      <span>
+        Email inválido
+      </span>
+    }
+  </label>
+
+  <label>
+    Contraseña:
+    <input type="password" formControlName="password" />
+    @if(form.controls.password.touched && form.controls.password.invalid)
+    {
+      <span>
+        Contraseña Requerida
+      </span>
+    }
+  </label>
+
+  <ion-button type="submit">Iniciar sesión</ion-button>
+</form>

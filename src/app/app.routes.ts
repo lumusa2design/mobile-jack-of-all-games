@@ -6,9 +6,16 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home/home.page').then((m) => m.HomePage),
   },
   {
+    path: 'identify',
+    loadComponent: () => import('./pages/identifier-page/identifier-page.component').then((m) => m.IdentifierPageComponent),
+  },
+  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'identify',
     pathMatch: 'full',
   },
+  {
+    path: '**',
+    redirectTo: 'identify',
+  }
 ];
-

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { GameFormComponent } from './game-form.component';
+import { LoginFomComponent } from './login-fom.component';
 
-describe('GameFormComponent', () => {
-  let component: GameFormComponent;
-  let fixture: ComponentFixture<GameFormComponent>;
+describe('LoginFomComponent', () => {
+  let component: LoginFomComponent;
+  let fixture: ComponentFixture<LoginFomComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameFormComponent ],
+      declarations: [ LoginFomComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(GameFormComponent);
+    fixture = TestBed.createComponent(LoginFomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
