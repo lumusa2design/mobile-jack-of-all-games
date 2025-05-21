@@ -3,7 +3,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from "../../../services/auth/auth.service";
 import { IonButton } from "@ionic/angular/standalone";
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; // 👈 importar Router
 
 @Component({
   selector: 'app-login-fom',
@@ -21,7 +21,7 @@ export class LoginFomComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router,
+    private router: Router // 👈 inyectar Router
   ) {}
 
   onSubmit() {
@@ -31,7 +31,7 @@ export class LoginFomComponent {
       this.authService.login(email!, password!).subscribe({
         next: (userCredential) => {
           console.log('Sesión iniciada:', userCredential.user);
-          this.router.navigate(['/home']);
+          this.router.navigate(['/home']); // 👈 redirigir a /home
         },
         error: (err) => {
           console.error('Error al iniciar sesión:', err);

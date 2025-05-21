@@ -24,12 +24,21 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/game-page/game-page.component').then((m) => m.GamePageComponent),
   },
   {
+    path: 'library',
+    loadComponent: () => import('./pages/library/library.component').then((m) => m.LibraryPageComponent),
+  },
+  {
     path: '',
-    redirectTo: 'library',
+    redirectTo: 'identify',
+    pathMatch: 'full',
+  },
+  {
+    path: '',
+    redirectTo: 'identify',
     pathMatch: 'full',
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'identify',
   }
 ];

@@ -28,21 +28,6 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 --------------------------------------------------------------------------------
-Package: @firebase/webchannel-wrapper
-License: "Apache-2.0"
-
-
---------------------------------------------------------------------------------
-Package: @firebase/firestore
-License: "Apache-2.0"
-
-
---------------------------------------------------------------------------------
-Package: @angular/fire
-License: "MIT"
-
-
---------------------------------------------------------------------------------
 Package: @capacitor/core
 License: "MIT"
 
@@ -67,6 +52,26 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+--------------------------------------------------------------------------------
+Package: @firebase/webchannel-wrapper
+License: "Apache-2.0"
+
+
+--------------------------------------------------------------------------------
+Package: @firebase/firestore
+License: "Apache-2.0"
+
+
+--------------------------------------------------------------------------------
+Package: rxfire
+License: "Apache-2.0"
+
+
+--------------------------------------------------------------------------------
+Package: @angular/fire
+License: "MIT"
+
 
 --------------------------------------------------------------------------------
 Package: @firebase/util
@@ -137,11 +142,6 @@ License: "Apache-2.0"
 
 --------------------------------------------------------------------------------
 Package: @firebase/app-check
-License: "Apache-2.0"
-
-
---------------------------------------------------------------------------------
-Package: rxfire
 License: "Apache-2.0"
 
 
