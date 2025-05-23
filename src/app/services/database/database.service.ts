@@ -1,6 +1,7 @@
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import { CapacitorSQLite, SQLiteConnection, SQLiteDBConnection } from '@capacitor-community/sqlite';
 import { Game } from 'src/app/models/game';
+import {Favourites} from "../../models/favourites";
 
 const DB_NAME = 'favouritegames'
 
@@ -11,7 +12,8 @@ export class DatabaseService {
 
   private sqlite: SQLiteConnection = new SQLiteConnection(CapacitorSQLite);
   private db!: SQLiteDBConnection
-  private gameList: WritableSignal<Game[]> = signal([]);
+  private gameList: WritableSignal<Favourites[]> = signal([]);
+
 
   constructor() { }
 
@@ -48,8 +50,9 @@ export class DatabaseService {
     );
 
     this.loadGames();
-
-    return result;
+    const games = await this.db.query('SELECT * FROM favourites;');
+    console.log('📀 Favoritos cargados desde SQLite:', games.values);
+    this.gameList.set(games.values || []);
   }
 
   getGameList() {

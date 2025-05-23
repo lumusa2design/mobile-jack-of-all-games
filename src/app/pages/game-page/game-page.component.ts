@@ -42,7 +42,7 @@ export class GamePageComponent {
 
   async checkIfFavourite() {
     const games = this.dbService.getGameList()();
-    this.isFavourite = games.some(g => g.id === this.gameId);
+    this.isFavourite = games.some(g => g.gameId === this.gameId);
   }
 
   async toggleFavourite() {

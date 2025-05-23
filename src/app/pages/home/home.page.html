@@ -1,3 +1,23 @@
 <ion-content class="ion-padding">
-  <h1>Bienvenido {{ (user | async)?.displayName || (user | async)?.email || 'usuario' }}</h1>
+
+  <h1>
+    Bienvenido
+    {{ (user | async)?.displayName || (user | async)?.email || 'usuario' }}
+  </h1>
+
+  <ng-container *ngIf="games$ | async as games">
+    <ion-list *ngIf="games.length > 0; else noFavourites">
+      <ion-item button *ngFor="let game of games" (click)="goToGame(game.id!)">
+        <app-cover-card
+          [title]="game.title"
+          [imgPath]="game.media?.img?.[0]!"
+        ></app-cover-card>
+      </ion-item>
+    </ion-list>
+
+    <ng-template #noFavourites>
+      <p>No tienes juegos favoritos todavía.</p>
+    </ng-template>
+  </ng-container>
+
 </ion-content>
