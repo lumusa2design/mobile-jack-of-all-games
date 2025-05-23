@@ -2,18 +2,24 @@
   <label>
     Email:
     <input type="email" formControlName="email" />
-    <span *ngIf="form.controls.email.touched && form.controls.email.invalid">
-      Email inválido
-    </span>
+    @if(form.controls.email.touched && form.controls.email.invalid)
+    {
+      <span>
+        Email inválido
+      </span>
+    }
   </label>
 
   <label>
     Contraseña:
     <input type="password" formControlName="password" />
-    <span *ngIf="form.controls.password.touched && form.controls.password.invalid">
-      Contraseña requerida
-    </span>
+    @if(form.controls.password.touched && form.controls.password.invalid)
+    {
+      <span>
+        Contraseña Requerida
+      </span>
+    }
   </label>
 
-  <button type="submit">Iniciar sesión</button>
+  <ion-button type="submit">Iniciar sesión</ion-button>
 </form>
