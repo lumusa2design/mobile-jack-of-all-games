@@ -12,7 +12,7 @@ import {AuthService} from "../../../services/auth/auth.service";
 })
 export class RegisterFormComponent {
   form = this.fb.group({
-    name: ['', Validators.required],
+    userName: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [
       Validators.required,
@@ -35,10 +35,10 @@ export class RegisterFormComponent {
   }
 
   onSubmit() {
-    const {email, password, confirmPassword} = this.form.value;
+    const {userName ,email, password, confirmPassword} = this.form.value;
 
     if (this.form.valid && password === confirmPassword) {
-      this.authService.signup(email!, password!).subscribe({
+      this.authService.signup(email!, password!, userName!).subscribe({
         next: (userCredential) => {
           console.log('✅ Usuario registrado:', userCredential.user);
         },

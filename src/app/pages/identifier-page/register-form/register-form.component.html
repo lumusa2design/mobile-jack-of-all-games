@@ -1,8 +1,8 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <label>
     Nombre:
-    <input type="text" formControlName="name" />
-    <span *ngIf="form.controls.name.touched && form.controls.name.invalid">Nombre requerido</span>
+    <input type="text" formControlName="userName" />
+    <span *ngIf="form.controls.userName.touched && form.controls.userName.invalid">Nombre requerido</span>
   </label>
 
   <label>
