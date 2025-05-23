@@ -1,3 +1,7 @@
-<p>
-  library works!
-</p>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item button *ngFor="let game of games$ | async" (click)="goToGame(game.id)">
+      <app-cover-card [title]="game.title" [imgPath]="game.media?.img[0]"></app-cover-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
