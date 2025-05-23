@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Firestore, doc, docData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { DatabaseService } from 'src/app/services/database/database.service';
 
 @Component({
   selector: 'app-game-page',
@@ -23,13 +24,40 @@ import { Observable } from 'rxjs';
 export class GamePageComponent {
   private route = inject(ActivatedRoute);
   private firestore = inject(Firestore);
+  private dbService = inject(DatabaseService);
 
   game$: Observable<any>;
+  gameId!: string;
+  isFavourite = false;
 
   constructor() {
     const gameId = this.route.snapshot.paramMap.get('id');
-    const ref = doc(this.firestore, `games/${gameId}`);
+    this.gameId = gameId!;
+    const ref = doc(this.firestore, `games/${this.gameId}`);
     this.game$ = docData(ref);
+
+    // Verifica si ya es favorito
+    this.checkIfFavourite();
+  }
+
+  async checkIfFavourite() {
+    const games = this.dbService.getGameList()();
+    this.isFavourite = games.some(g => g.id === this.gameId);
+  }
+
+  async toggleFavourite() {
+    try {
+      if (this.isFavourite) {
+        await this.dbService.deleteGame(this.gameId);
+        console.log('Juego eliminado de favoritos');
+      } else {
+        await this.dbService.addGame(this.gameId);
+        console.log('Juego añadido a favoritos');
+      }
+      this.isFavourite = !this.isFavourite;
+    } catch (err) {
+      console.error('Error al actualizar favoritos:', err);
+    }
   }
 
   expanded = false;

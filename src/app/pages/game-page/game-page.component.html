@@ -14,7 +14,9 @@
         <h3>Platforms:</h3>
         <p>{{ game.platform?.join(', ') }}</p>
 
-        <ion-button expand="block">Add to Favourites</ion-button>
+        <ion-button expand="block" (click)="toggleFavourite()">
+          {{ isFavourite ? 'Remove from Favourites' : 'Add to Favourites' }}
+        </ion-button>
 
         <p [class.collapsed]="!isExpanded()" [class.expanded]="isExpanded()">
           {{ game.description }}

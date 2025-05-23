@@ -42,11 +42,13 @@ export class DatabaseService {
   }
 
   async addGame(id: string) {
-    const query = `INSERT INTO favourites (gameId) VALUES (${id})`;
-    const result = await this.db.query(query);
+    const result = await this.db.run(
+      'INSERT INTO favourites (gameId) VALUES (?);',
+      [id]
+    );
 
     this.loadGames();
-    
+
     return result;
   }
 
