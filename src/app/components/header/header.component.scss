@@ -1,0 +1,50 @@
+:host {
+  ion-menu {
+    --background: #1e1e1e;
+    color: white;
+  }
+
+  ion-header,
+  ion-toolbar {
+    --background: #1e1e1e;
+    --color: white;
+    border-bottom: 1px solid #333;
+  }
+
+  ion-title {
+    color: white;
+    font-weight: bold;
+  }
+
+  ion-content {
+    --background: #1e1e1e;
+    background: #1e1e1e;
+    color: white;
+  }
+
+  ion-list {
+    background: transparent;
+  }
+
+  ion-item {
+    --background: transparent;
+    --ion-item-background: transparent;
+    --color: white;
+    --ion-item-border-color: #333;
+    border-bottom: 1px solid #333;
+  }
+
+  ion-item:hover {
+    background-color: #2a2a2a;
+  }
+
+  ion-label {
+    color: white;
+  }
+
+  ion-item[disabled] {
+    opacity: 0.5;
+  }
+
+}
+

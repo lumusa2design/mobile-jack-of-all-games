@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   IonAccordion,
   IonAccordionGroup, IonContent,
-  IonHeader,
+  IonHeader, IonIcon,
   IonItem,
   IonLabel, IonList, IonMenu, IonRouterOutlet,
   IonTitle,
@@ -28,7 +28,8 @@ import { RouterModule } from '@angular/router';
     IonMenu,
     IonContent,
     IonList,
-    IonRouterOutlet
+    IonRouterOutlet,
+    IonIcon
   ]
 })
 export class HeaderComponent  implements OnInit {
