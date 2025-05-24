@@ -46,7 +46,7 @@ export class RegisterFormComponent {
           console.log('✅ Usuario registrado:', userCredential.user);
           this.feedbackMessage = '✅ Registro exitoso. ¡Bienvenido!';
           this.feedbackType = 'success';
-          this.form.reset();  // Opcional: limpia el formulario
+          this.form.reset();
         },
         error: (err) => {
           console.error('❌ Error al registrar:', err);
