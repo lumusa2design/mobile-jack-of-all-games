@@ -1,0 +1,14 @@
+ion-content {
+  --background: #1e1e1e;
+}
+
+ion-list {
+  background: transparent;
+}
+
+ion-item {
+  --background: transparent;
+  --ion-item-background: transparent;
+  --color: white; // color del texto si necesitas
+  padding: 0;
+}
