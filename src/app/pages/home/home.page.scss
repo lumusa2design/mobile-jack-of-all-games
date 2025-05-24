@@ -25,3 +25,32 @@
 #container a {
   text-decoration: none;
 }
+ion-content {
+  --background: #1e1e1e;
+  color: white;
+}
+
+h1 {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+ion-list {
+  background: transparent;
+}
+
+ion-item {
+  --background: transparent;
+  --ion-item-background: transparent;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+p {
+  color: #8c8c8c;
+  text-align: center;
+  margin-top: 32px;
+  font-size: 16px;
+}
