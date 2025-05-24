@@ -1,20 +1,13 @@
-<div class="form-wrapper">
-  <button (click)="toggleForm()">
-    {{ showLogin() ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión' }}
-  </button>
+<ion-content class="ion-padding identifier-content">
+  <div class="form-wrapper">
+    @if (!showLogin()) {
+      <app-register-form></app-register-form>
+    } @else {
+      <app-login-fom></app-login-fom>
+    }
 
-  @if(!showLogin())
-  {
-    <div>
-      <app-register-form>
-
-      </app-register-form>
-
-    </div>
-  } @else
-  {
-    <div>
-      <app-login-fom/>
-    </div>
-  }
-</div>
+    <button (click)="toggleForm()" class="toggle-button">
+      {{ showLogin() ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión' }}
+    </button>
+  </div>
+</ion-content>
