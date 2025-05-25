@@ -7,7 +7,7 @@ import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { DatabaseService } from 'src/app/services/database/database.service';
 import { combineLatest, map, Observable } from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
-
+import { Router } from '@angular/router';
 import { Game } from 'src/app/models/game';
 import { Favourites } from 'src/app/models/favourites';
 
@@ -28,6 +28,8 @@ export class HomePage {
   private authService = inject(AuthService);
   private firestore = inject(Firestore);
   private db = inject(DatabaseService);
+  private router = inject(Router);
+
 
   user = this.authService.getUser();
 
@@ -45,6 +47,6 @@ export class HomePage {
     })
   );
   goToGame(id: string) {
-    // tu lógica de navegación aquí si la necesitas
+    this.router.navigate(['/game', id]);
   }
 }
