@@ -51,7 +51,6 @@ export class DatabaseService {
 
     this.loadGames();
     const games = await this.db.query('SELECT * FROM favourites;');
-    console.log('📀 Favoritos cargados desde SQLite:', games.values);
     this.gameList.set(games.values || []);
   }
 
