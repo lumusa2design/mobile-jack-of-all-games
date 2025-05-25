@@ -32,3 +32,6 @@
 
   <button type="submit">Registrarse</button>
 </form>
+<div *ngIf="feedbackMessage" [ngClass]="{'success': feedbackType === 'success', 'error': feedbackType === 'error'}">
+  {{ feedbackMessage }}
+</div>

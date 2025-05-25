@@ -21,6 +21,9 @@ export class RegisterFormComponent {
     ]],
     confirmPassword: ['', Validators.required],
   });
+  feedbackMessage: string | null = null;
+  feedbackType: 'success' | 'error' | null = null;
+
 
   constructor(private fb: FormBuilder, private authService: AuthService) {
   }
@@ -35,19 +38,30 @@ export class RegisterFormComponent {
   }
 
   onSubmit() {
-    const {userName ,email, password, confirmPassword} = this.form.value;
+    const { userName, email, password, confirmPassword } = this.form.value;
 
     if (this.form.valid && password === confirmPassword) {
       this.authService.signup(email!, password!, userName!).subscribe({
         next: (userCredential) => {
           console.log('✅ Usuario registrado:', userCredential.user);
+          this.feedbackMessage = '✅ Registro exitoso. ¡Bienvenido!';
+          this.feedbackType = 'success';
+          this.form.reset();
         },
         error: (err) => {
-          console.error(' Error al registrar:', err);
+          console.error('❌ Error al registrar:', err);
+          if (err?.message?.includes('already') || err?.code === 'auth/email-already-in-use') {
+            this.feedbackMessage = '❌ El correo ya está registrado.';
+          } else {
+            this.feedbackMessage = '❌ Ocurrió un error. Intenta de nuevo.';
+          }
+          this.feedbackType = 'error';
         }
       });
     } else {
       this.form.markAllAsTouched();
+      this.feedbackMessage = null;
+      this.feedbackType = null;
       if (password !== confirmPassword) {
         alert('Las contraseñas no coinciden');
       }
